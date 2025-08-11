@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - SHAKA</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #1e1e1e;
+      --box-color: #2a2a2a;
+      --text-color: #fff;
+      --input-bg: #3c3c3c;
+      --accent: #d4af37;
+    }
+
+    body.light-mode {
+      --bg-color: #f4f4f4;
+      --box-color: #ffffff;
+      --text-color: #222;
+      --input-bg: #e0e0e0;
+      --accent: #c19e2f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .login-box {
+      background-color: var(--box-color);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+    .theme-toggle button {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .login-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      font-size: 15px;
+    }
+
+    .login-form input::placeholder {
+      color: #aaa;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent);
+      border: none;
+      border-radius: 6px;
+      color: #000;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-form button:hover {
+      background-color: #c19e2f;
+    }
+
+    .form-footer {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .form-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main class="login-wrapper">
+    <section class="login-box">
+      <div class="theme-toggle">
+        <button id="toggleTheme"><i class="fas fa-moon"></i></button>
+      </div>
+      <div class="brand">
+        <img src="logo.png" alt="Logo SHAKA" class="logo" />
+        <h1>Cadastro SHAKA</h1>
+      </div>
+      <form id="registerForm" class="login-form">
+        <label for="name"><i class="fas fa-user"></i> Nome completo</label>
+        <input type="text" id="name" name="name" placeholder="Seu nome" required />
+
+        <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
+
+        <label for="username"><i class="fas fa-user-circle"></i> Usuário</label>
+        <input type="text" id="username" name="username" placeholder="Nome de usuário" required />
+
+        <label for="password"><i class="fas fa-lock"></i> Senha</label>
+        <input type="password" id="password" name="password" placeholder="Crie uma senha" required />
+
+        <button type="submit">Cadastrar</button>
+        <div class="form-footer">
+          <a href="#">Já tem conta? Entrar</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Alternância de tema
+    document.getElementById("toggleTheme").addEventListener("click", function () {
+      document.body.classList.toggle("light-mode");
+    });
+
+    // Validação de cadastro
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!name || !email || !username || !password) {
+        alert("Todos os campos são obrigatórios.");
+        return;
+      }
+
+      if (!email.includes("@") || !email.includes(".")) {
+        alert("E-mail inválido.");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("A senha deve ter pelo menos 6 caracteres.");
+        return;
+      }
+
+      alert(`Cadastro realizado com sucesso para ${name}!`);
+      // Aqui você pode enviar os dados para o backend ou Firebase
+    });
+  </script>
+</body>
+</html>
