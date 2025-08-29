@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loja Africana</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f1ea;
+      color: #3e2f1c;
+    }
+
+    header {
+      background-color: #5c3d2e;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .product {
+      background-color: #d2b48c;
+      border: 2px solid #8b5e3c;
+      border-radius: 8px;
+      margin: 1rem;
+      padding: 1rem;
+      width: 250px;
+      text-align: center;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .product h2 {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+    }
+
+    .product p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    button {
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a66f4c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Loja Africana</h1>
+    <p>Produtos autênticos com alma africana</p>
+  </header>
+
+  <main id="product-list"></main>
+
+  <script>
+    const products = [
+      {
+        name: "Máscara Tribal",
+        price: "R$ 120,00",
+        image: "https://www.artesintonia.com.br/cdn/shop/files/CR583-52-mascara-indigena-decorativa-etnia-munduruku-artesanato-brasileiro-curral-cor-minas-gerais-prados-madeira-decoracao-brasileira-design-autoral-loja-artesintonia-2.jpg?v=1745988434&width=1500"
+      },
+      {
+        name: "Tecido Kente",
+        price: "R$ 85,00",
+        image: "https://m.media-amazon.com/images/I/71yP4sOAKwS._AC_SL1500_.jpg"
+      },
+      {
+        name: "Colar Maasai",
+        price: "R$ 60,00",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN878Vz8Tub7FstonEs-YIVfJPnFnGxiO00PjKnT47lyWnA8GEn73JbHk1921Ust2QvvE&usqp=CAU"
+      },
+      {
+        name: "Brinco Afro",
+        price: "R$ 150,00",
+        image: "https://mundonegro.inf.br/wp-content/uploads/2020/12/clichee.acessorios_130836476_901029017317177_3819871519228886849_n-1-1024x1024.jpg"
+      },
+      {
+        name: "Pulseira pedra única de turquesa africana folheada a ouro",
+        price: "R$ 320,00",
+        image: "https://cecijoias.com.br/wp-content/uploads/2022/01/pulseira-pedra-unica.-2.jpg"
+      },
+      {
+        name: "Brinco Anel de ouro africano",
+        price: "R$ 40,00",
+        image: "https://ae01.alicdn.com/kf/Ab4f8eebfbacb4d38b01fa17598b85b35g/18k-Ouro-Cor-Brincos-com-Anel-Set-J-ias-Dedo-Africano-Clip-Brincos-Dubai-J-ias.jpg"
+      }
+    ];
+
+    const productList = document.getElementById("product-list");
+
+    products.forEach(product => {
+      const div = document.createElement("div");
+      div.className = "product";
+      div.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h2>${product.name}</h2>
+        <p><strong>${product.price}</strong></p>
+        <button>Comprar</button>
+      `;
+      productList.appendChild(div);
+    });
+  </script>
+</body>
+</html>
