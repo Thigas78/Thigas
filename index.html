@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loja Africana</title>
+  <title>Shaka</title>
   <style>
     body {
       margin: 0;
@@ -11,12 +11,72 @@
       background-color: #f4f1ea;
       color: #3e2f1c;
     }
+    .banner {
+      width: 100%;
+      height: 300px;
+      background-image: url('https://media.discordapp.net/attachments/1100537369498747001/1410792199527858266/FDF2AA41-9F7C-4E9D-81C3-0C5FBE065085.png?ex=68b24e1f&is=68b0fc9f&hm=7df15dc91392ec9831a3fa08dae98c58eb6d0a90d13238068be9f58d1889182c&=&format=webp&quality=lossless');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .banner-content h2 {
+      font-size: 3rem;
+      margin: 0 0 1rem 0;
+      font-weight: bold;
+    }
+    .banner-content p {
+      font-size: 1.3rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
     header {
       background-color: #5c3d2e;
+      background-image: url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
       color: #fff;
       text-align: center;
       padding: 2rem;
       position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(92, 61, 46, 0.7);
+      z-index: 1;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
     header h1 {
       margin: 0;
@@ -208,7 +268,7 @@
 </head>
 <body>
   <header>
-    <h1>Loja Africana</h1>
+    <h1>Shaka</h1>
     <p>Produtos autênticos com alma africana</p>
     <div class="cart-icon" onclick="openCart()">
       🛒
